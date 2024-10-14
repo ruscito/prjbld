@@ -8,8 +8,8 @@ usage(){
 
 pname=$1
 pdir="./${pname}"
-# tdir=/var/bash/prjbld/templates
-tdir=~/repos/c/prjbld/templates
+tdir=/var/prjbld/templates
+
 
 
 if [ -z "$pname" ]; then
