@@ -8,7 +8,8 @@ usage(){
 
 pname=$1
 pdir="./${pname}"
-tdir=/var/prjbld/templates
+# tdir=/var/prjbld/templates
+tdir=/home/agostino/repos/c/prjbld/templates
 
 
 
@@ -40,14 +41,16 @@ cp -R ${tdir}/$template $pdir
 cd $pdir
 
 for x in *; do
-    new=$(sed "s,PRJNM,$pname,g" <<< "$x")
-    if [ "$x" = "$new" ]; then
-        sed "s,PRJNM,$pname,g" < $x > temp
-        mv -f temp $x
-    else
-        sed "s,PRJNM,$pname,g" < $x > $new
-        if [ -e "$new" ]; then
-            rm -f $x
+    if [ -f "$x" ]; then
+        new=$(sed "s,PRJNM,$pname,g" <<< "$x")
+        if [ "$x" = "$new" ]; then
+            sed "s,PRJNM,$pname,g" < $x > temp
+            mv -f temp $x
+        else
+            sed "s,PRJNM,$pname,g" < $x > $new
+            if [ -e "$new" ]; then
+                rm -f $x
+            fi
         fi
     fi
 done

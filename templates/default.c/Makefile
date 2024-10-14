@@ -1,15 +1,16 @@
-flags=-O2 -Wall -Wextra -std=c2x
-ldflags=
+CC=cc
+CFLAGS=-O2 -Wall -Wextra -std=c2x
+LDFLAGS=
 
 .PHONY: all clean
 
 all: clean PRJNM
 
 PRJNM: PRJNM.o
-	cc $(flags) $^ -o $@ $(ldflags)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 PRJNM.o: PRJNM.c PRJNM.h
-	cc $(flags) -c $<
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -f *.o PRJNM
