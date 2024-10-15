@@ -8,8 +8,7 @@ usage(){
 
 pname=$1
 pdir="./${pname}"
-# tdir=/var/prjbld/templates
-tdir=/home/agostino/repos/c/prjbld/templates
+tdir=/var/prjbld/templates
 
 
 
